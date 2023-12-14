@@ -1,14 +1,26 @@
 {
-  "name": "backend",
-  "version": "1.0.0",
-  "description": "",
+  "name": "backend-ashutosh",
+  "version": "1.0.4",
+  "description": "Express app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "bin": {
+    "backend-ashutosh": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1ashutoshverma/BackendBoilerCode"
+  },
+  "keywords": [
+    "mongoose",
+    "express",
+    "generator",
+    "npx"
+  ],
+  "author": "Ashutosh Verma",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",

@@ -1,32 +1,19 @@
-const express = require("express");
-const cors = require("cors");
-const { connection } = require("./configs/db");
-const { userController } = require("./controllers/user.routes");
-const { authentication } = require("./middlewares/authentication");
-const { employeeController } = require("./controllers/employee.routes");
+// index.js
+const fs = require("fs");
+const path = require("path");
 
-const app = express();
-const PORT = process.env.PORT || 8080;
-app.use(cors());
-app.use(express.json());
+const copyFiles = () => {
+  const sourceDir = path.join(__dirname, "templates");
+  const targetDir = process.cwd(); // Current working directory of the project
 
-app.get("/", (req, res) => {
-  res.json({ message: "server is running" });
-});
+  // Copy files and folders from source to target
+  fs.readdirSync(sourceDir).forEach((file) => {
+    const sourcePath = path.join(sourceDir, file);
+    const targetPath = path.join(targetDir, file);
+    fs.copyFileSync(sourcePath, targetPath);
+  });
 
-app.use("/user", userController);
+  console.log("Files copied successfully!");
+};
 
-app.use(authentication);
-
-app.use("/employee", employeeController);
-
-app.listen(PORT, async () => {
-  try {
-    await connection;
-    console.log("DB is connected");
-  } catch (error) {
-    console.log("Error while connection to db");
-    console.log(error);
-  }
-  console.log("server is running");
-});
+module.exports = copyFiles;
