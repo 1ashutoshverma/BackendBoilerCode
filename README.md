@@ -1,0 +1,1 @@
+edit .env.txt file
