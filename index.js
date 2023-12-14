@@ -109,7 +109,7 @@ const createApp = () => {
   // Inform the user
   console.log(`\n${projectName} created successfully!\n`);
   console.log(
-    `To start your app, run:\n\n  cd ${projectName} && npm install && npm start\n`
+    `To start your app, run:\n\n  cd ${projectName} \n npm install \n nodemon index.js\n`
   );
 };
 
