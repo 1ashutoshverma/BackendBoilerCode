@@ -66,7 +66,7 @@ const createApp = () => {
     `
     {
       "version": 2,
-      "name": "mock2backend",
+      "name": "${projectName}",
       "builds": [{ "src": "index.js", "use": "@vercel/node" }],
       "routes": [{ "src": "/(.*)", "dest": "/index.js" }]
     }
