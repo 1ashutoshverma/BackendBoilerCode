@@ -1,17 +1,17 @@
 {
-  "name": "create-me-app-dip",
+  "name": "backend-ashutosh",
   "version": "1.0.2",
-  "description": "Generate an Express app with mongoose",
+  "description": "Express app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "create-me-app-dip": "./index.js"
+    "backend-ashutosh": "./index.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Dipanshu-Singh-Dev/create-me-app-dip"
+    "url": "https://github.com/1ashutoshverma/BackendBoilerCode"
   },
   "keywords": [
     "mongoose",
@@ -19,7 +19,7 @@
     "generator",
     "npx"
   ],
-  "author": "Dipanshu Singh",
+  "author": "Ashutosh Verma",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
