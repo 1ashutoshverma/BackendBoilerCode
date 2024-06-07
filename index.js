@@ -44,7 +44,7 @@ const createApp = () => {
   fs.writeFileSync(
     ".gitignore",
     `
-    node_modules/
+    node_modules
 .env
 `
   );
@@ -103,8 +103,8 @@ const createApp = () => {
   );
   fs.writeFileSync(
     ".env",
-    `MONGO_DB = ;
-    JWT_SECRET = ;`
+    `MONGO_DB = 
+    JWT_SECRET = `
   );
   // Inform the user
   console.log(`\n${projectName} created successfully!\n`);
