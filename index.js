@@ -43,33 +43,30 @@ const createApp = () => {
 
   fs.writeFileSync(
     ".gitignore",
-    `
-    node_modules
+    `node_modules
 .env
 `
   );
 
   fs.writeFileSync(
     "./configs/db.js",
-    `
-    const mongoose = require("mongoose");
-    require("dotenv").config();
-    
-    const connection = mongoose.connect(process.env.MONGO_DB);
-    
-    module.exports = { connection };
+    `const mongoose = require("mongoose");
+require("dotenv").config();
+
+const connection = mongoose.connect(process.env.MONGO_DB);
+
+module.exports = { connection };
 `
   );
 
   fs.writeFileSync(
     "vercel.json",
-    `
-    {
-      "version": 2,
-      "name": "${projectName}",
-      "builds": [{ "src": "index.js", "use": "@vercel/node" }],
-      "routes": [{ "src": "/(.*)", "dest": "/index.js" }]
-    }
+    `{
+"version": 2,
+"name": "${projectName}",
+"builds": [{ "src": "index.js", "use": "@vercel/node" }],
+"routes": [{ "src": "/(.*)", "dest": "/index.js" }]
+}
 `
   );
 
@@ -77,39 +74,42 @@ const createApp = () => {
   fs.writeFileSync(
     "index.js",
     `const express = require("express");
-    const cors = require("cors");
-    const { connection } = require("./configs/db");
-    
-    const app = express();
-    const PORT = process.env.PORT || 8080;
-    app.use(cors());
-    app.use(express.json());
-    
-    app.get("/", (req, res) => {
-      res.json({ message: "server is running" });
-    });
-    
-    app.listen(PORT, async () => {
-      try {
-        await connection;
-        console.log("DB is connected");
-      } catch (error) {
-        console.log("Error while connection to db");
-        console.log(error);
-      }
-      console.log("server is running");
-    });
+const cors = require("cors");
+const { connection } = require("./configs/db");
+
+const app = express();
+const PORT = process.env.PORT || 8080;
+app.use(cors());
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.json({ message: "server is running" });
+});
+
+app.listen(PORT, async () => {
+  try {
+    await connection;
+    console.log("DB is connected");
+  } catch (error) {
+    console.log("Error while connecting to db");
+    console.log(error);
+  }
+  console.log("server is running");
+});
 `
   );
+
   fs.writeFileSync(
     ".env",
-    `MONGO_DB = 
-    JWT_SECRET = `
+    `MONGO_DB =
+JWT_SECRET =
+`
   );
+
   // Inform the user
   console.log(`\n${projectName} created successfully!\n`);
   console.log(
-    `To start your app, run:\n\n  cd ${projectName} \n npm install \n nodemon index.js\n`
+    `To start your app, run:\n\n  cd ${projectName} \n  npm install \n  nodemon index.js\n`
   );
 };
 
